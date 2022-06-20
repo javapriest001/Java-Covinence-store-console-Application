@@ -1,5 +1,6 @@
 package com.enwereVincent;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import static com.enwereVincent.Main.input;
@@ -10,6 +11,7 @@ public class Customer {
     private String Address;
 
     private  Product[] product;
+
 
 
     public Customer(int id, String name , String address){
@@ -26,14 +28,14 @@ public class Customer {
     }
 
     //The buy method loops through the product array and creates new product objects
-    public void buyProduct(){
+    public  void buyProduct(){
         input.nextLine();
         for (int i = 0; i < product.length; i++){
             System.out.print("Enter Product " + "No." + (i + 1) + " ");
             String prod =  input.nextLine();
             product[i] = new Product(prod);
         }
-        System.out.println(Arrays.toString(product));
+        System.out.println("Hello!, You Just Bought: " + Arrays.toString(product));
     }
 
     public int getId() {

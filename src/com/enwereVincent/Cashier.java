@@ -31,11 +31,11 @@ public class Cashier {
     public void sellProduct(){
         input.nextLine();
         for (int i = 0; i < product.length; i++){
-            System.out.print("Enter Product " + (i + 1) + " ");
+            System.out.print("Enter Product to be sold " + (i + 1) + " ");
             String prod =  input.nextLine();
             product[i] = new Product(prod);
         }
-        System.out.println("Pro");
+
     }
     public int getId() {
         return id;
