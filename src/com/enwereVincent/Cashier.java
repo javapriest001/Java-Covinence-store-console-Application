@@ -1,12 +1,14 @@
 package com.enwereVincent;
 
+import Interfaces.iCashier;
+import Model.Staff;
+
 import java.util.Arrays;
 
 import static com.enwereVincent.Main.input;
 
-public class Cashier {
-    private int id;
-    private String Name;
+public class Cashier extends Staff implements iCashier {
+
     private Customer customer;
     private Product[] product;
 
@@ -16,18 +18,17 @@ public class Cashier {
     /*
         Creating a product array where the cashier will be able to add the products bought by the customer.
          */
-    public Cashier(int id , String Name ){
-        this.id = id;
-        this.Name = Name;
+    public Cashier(int id , String name ){
+        super(id, name);
     }
 
-    public Cashier(int id , String Name, Customer customer , Product[] product){
-        this.id = id;
-        this.Name = Name;
+    public Cashier(int id , String name, Customer customer , Product[] product){
+        super(id, name);
         this.customer = customer;
         this.product = product;
     }
 
+    @Override
     public void sellProduct(){
         input.nextLine();
         for (int i = 0; i < product.length; i++){
@@ -37,26 +38,7 @@ public class Cashier {
         }
 
     }
-    public int getId() {
-        return id;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public Product[] getProduct() {
-        return product;
-    }
-
     @Override
-    public String toString() {
-        return "Cashier{" +
-                "id=" + id +
-                ", Name='" + Name + '\'' +
-                '}';
-    }
-
     public String invoice(){
         String message =  "################################# \n"+
                 "Thank You For your Patronage, " + getCustomer().getName() +"! \n" +
@@ -72,6 +54,35 @@ public class Cashier {
 
 
         return message;
+    }
+
+
+    public int getId() {
+        return super.getId();
+    }
+
+    public String getName(){
+        return super.getName();
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public Product[] getProduct() {
+        return product;
+    }
+
+
+
+
+
+    @Override
+    public String toString() {
+        return "Cashier{" +
+                "id=" + super.getId() +
+                ", Name='" + super.getName() + '\'' +
+                '}';
     }
 
 }

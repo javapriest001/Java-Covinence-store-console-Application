@@ -1,13 +1,15 @@
 package com.enwereVincent;
 
+import Interfaces.iCustomer;
+import Model.Staff;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import static com.enwereVincent.Main.input;
 
-public class Customer {
-    private int id;
-    private String Name;
+public class Customer extends Staff implements iCustomer  {
+
     private String Address;
 
     private  Product[] product;
@@ -15,14 +17,14 @@ public class Customer {
 
 
     public Customer(int id, String name , String address){
-        this.id = id;
-        this.Name = name;
+        super(id, name);
+//        this.id = id;
+//        this.Name = name;
         this.Address = address;
     }
     //Overloaded Constructor that intializes the product array.
     public Customer(int id, String name , String address, Product[] addProduct){
-        this.id = id;
-        this.Name = name;
+        super(id, name);
         this.Address = address;
         this.product = addProduct;
     }
@@ -39,11 +41,11 @@ public class Customer {
     }
 
     public int getId() {
-        return id;
+        return super.getId();
     }
 
     public String getName() {
-        return Name;
+        return super.getName();
     }
 
     public String getAddress() {

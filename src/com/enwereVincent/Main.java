@@ -10,8 +10,6 @@ public class Main {
     public static void main(String[] args) {
 
 
-
-
         //Manager Player Implementation.
         Manager manager = new Manager(1 , "Chief");
         manager.hireCashier(new Cashier(2 , "Chike"));
@@ -51,9 +49,6 @@ public class Main {
     }
 
 
-    public static void sellMrthod(Product product){
-        ArrayList<Product> products= new ArrayList<>();
-        products.add(product);
-    }
+
 
 }

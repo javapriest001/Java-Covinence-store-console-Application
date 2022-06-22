@@ -1,33 +1,36 @@
 package com.enwereVincent;
+import Interfaces.iManager;
+import Model.Staff;
+
 import java.util.ArrayList;
 
-public class Manager{
+public class Manager extends Staff implements iManager {
 
 
 
-    private int id;
-    private String name;
+
     private ArrayList<Cashier> cashier;
 
 
     public Manager(int id , String name){
 
-        this.id = id;
-        this.name = name;
+        super(id,name);
         cashier = new ArrayList<>();
     }
 
 
+    @Override
     public  void  hireCashier(Cashier cashierAdd) {
+
         cashier.add(cashierAdd);
-        System.out.println("You Have Successfully Hired A new Manager!");
+        System.out.println("You Have Successfully Hired A new Cashier!");
     }
 
     @Override
     public String toString() {
         return "Manager{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "id=" + super.getId() +
+                ", name='" + super.getName() + '\'' +
                 ", cashier=" + cashier +
                 '}';
     }
